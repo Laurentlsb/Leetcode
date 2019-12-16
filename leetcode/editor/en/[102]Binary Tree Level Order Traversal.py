@@ -67,6 +67,7 @@ class Solution:
 #             level = [leaf for LR in LRpair for leaf in LR if leaf] # 取一个pair，再迭代pair中的非None节点，组成新的一层level
 #         return ans
 
+
 # 12/16/2019
 class Solution:
     def levelOrder(self, root: TreeNode) -> List[List[int]]:
