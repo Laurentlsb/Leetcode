@@ -76,7 +76,7 @@ class Solution:
 不过不是O(1)的空间复杂度
 """
 
-# reference
+# reference  O(1)空间复杂度
 # def connect(self, node):
 #     tail = dummy = TreeLinkNode(0)
 #     while node:
