@@ -68,5 +68,9 @@ class Solution:
             pairs = [(node.left, node.right) for node in level]
             level = [node for pair in pairs for node in pair if node]
         return root
+
+"""
+不是O(1)的空间复杂度
+"""
         
 #leetcode submit region end(Prohibit modification and deletion)

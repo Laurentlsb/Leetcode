@@ -54,6 +54,8 @@ class Node:
         self.right = right
         self.next = next
 """
+
+# 12/17/2019
 class Solution:
     def connect(self, root: 'Node') -> 'Node':
         if not root:
@@ -71,6 +73,22 @@ class Solution:
 
 """
 方法同116题，一模一样
+不过不是O(1)的空间复杂度
 """
+
+# reference
+# def connect(self, node):
+#     tail = dummy = TreeLinkNode(0)
+#     while node:
+#         tail.next = node.left
+#         if tail.next:
+#             tail = tail.next
+#         tail.next = node.right
+#         if tail.next:
+#             tail = tail.next
+#         node = node.next
+#         if not node:
+#             tail = dummy
+#             node = dummy.next
         
 #leetcode submit region end(Prohibit modification and deletion)
