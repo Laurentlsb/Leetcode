@@ -73,7 +73,28 @@ class BSTIterator:
 """
 由于是BST，所以该题的本质就是按序输出中序遍历的结果
 注意stack维护时的操作，易出错
+直接遍历全部，相比下面的分步走，结构更清晰，但效率相对不那么高
 """
+
+# reference
+# def __init__(self, root):
+#     self.stack = []
+#     while root:
+#         self.stack.append(root)
+#         root = root.left
+#
+# # @return a boolean, whether we have a next smallest number
+# def hasNext(self):
+#     return len(self.stack) > 0
+#
+# # @return an integer, the next smallest number
+# def next(self):
+#     node = self.stack.pop()
+#     x = node.right
+#     while x:
+#         self.stack.append(x)
+#         x = x.left
+#     return node.val
 
 # Your BSTIterator object will be instantiated and called as such:
 # obj = BSTIterator(root)
