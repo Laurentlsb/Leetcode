@@ -46,6 +46,7 @@
 #         self.left = None
 #         self.right = None
 
+# 12/17/2019 my solution
 class Solution:
     def sumNumbers(self, root: TreeNode) -> int:
         if not root:
@@ -65,7 +66,21 @@ class Solution:
     def path2num(self, path):
         num = 0
         for i in range(len(path)):
-            num += path[i] * 10 ** (len(path) - 1 - i)
+            num += path[i]*10**(len(path)-1-i)
         return num
+
+# # recursively (referrence)
+# class Solution:
+#     def sumNumbers(self, root):
+#         self.res = 0
+#         self.dfs(root, 0)
+#         return self.res
+#
+#     def dfs(self, root, value):
+#         if root:
+#             self.dfs(root.left, value * 10 + root.val)
+#             self.dfs(root.right, value * 10 + root.val)
+#             if not root.left and not root.right:
+#                 self.res += value * 10 + root.val
         
 #leetcode submit region end(Prohibit modification and deletion)
