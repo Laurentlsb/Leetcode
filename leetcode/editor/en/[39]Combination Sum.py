@@ -57,7 +57,7 @@ class Solution:
 """
 backtracking
 通过回溯candidates，不断用target - num，直到target==0时返回找到的组合
-递归的回溯：传参时不能改变原来得temp，否则无法回退到上一个阶段得到的临时组合
+递归的回溯：传参时不能改变原来得temp，否则无法回退到上一个阶段得到的临时组合!!!
 """
 
 # leetcode solution
@@ -77,4 +77,48 @@ def dfs(self, nums, target, index, path, res):
     for i in xrange(index, len(nums)):
         self.dfs(nums, target - nums[i], i, path + [nums[i]], res)
 
+
+# my iterative solution, referred from above
+# iteratively, dfs solution
+class Solution:
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        candidates.sort()
+        res = []
+        stack = [(0, [])]
+
+        while stack:
+            index, path = stack.pop()
+            while index < len(candidates):
+                diff = target - sum(path)
+                if diff == 0:
+                    res.append(path)
+                    break
+                elif diff < candidates[0]:
+                    pass
+                else:
+                    # print((index, path+[candidates[index]]))
+                    stack.append((index, path+[candidates[index]]))
+                index += 1
+        return res
+
+# if don't break the while loop after appending path to res
+# (0, [2])
+# (1, [3])
+# (2, [6])
+# (3, [7])
+# (1, [3, 3])
+# (2, [3, 6])
+# (3, [3, 7])
+# (0, [2, 2])
+# (1, [2, 3])
+# (2, [2, 6])
+# (3, [2, 7])
+# (1, [2, 3, 3])
+# (2, [2, 3, 6])
+# (3, [2, 3, 7])
+# (0, [2, 2, 2])
+# (1, [2, 2, 3])
+# (2, [2, 2, 6])
+# (3, [2, 2, 7])
+# [[7], [2, 2, 3], [2, 2, 3], [2, 2, 3]]
 #leetcode submit region end(Prohibit modification and deletion)
