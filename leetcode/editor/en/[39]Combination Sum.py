@@ -79,7 +79,7 @@ def dfs(self, nums, target, index, path, res):
 
 
 # my iterative solution, referred from above
-# iteratively, dfs solution
+# iteratively, bfs solution
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         candidates.sort()
