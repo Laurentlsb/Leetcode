@@ -59,6 +59,24 @@ class Solution:
                 self.helper(nums, i + 1, path + [nums[i]], target - nums[i], res)
 
 # iteratively
-
+class Solution:
+    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
+        candidates.sort()
+        res = []
+        stack = [(0, [])]
+        while stack:
+            index, path = stack.pop()
+            diff = target - sum(path)
+            if diff == 0:
+                path.sort()
+                if path not in res:
+                    res.append(path)
+                    continue
+            for i in range(index, len(candidates)):
+                if index >= len(candidates) or diff < candidates[index]:
+                    break
+                else:
+                    stack += [(i+1, path+[candidates[i]])]
+        return res
         
 #leetcode submit region end(Prohibit modification and deletion)
