@@ -40,5 +40,21 @@ class Solution:
 2. 只有在右括号少于左括号的时候，才可以添加右括号
 只有这样，当left==right==0时，构造出来的，才能确保是有效解
 """
-        
+
+# iteratively
+class Solution:
+    def generateParenthesis(self, n: int) -> List[str]:
+        res = []
+        stack = [(n, n, '')]
+        while stack:
+            left, right, path = stack.pop()
+            if left == right == 0:
+                res.append(path)
+                continue
+            if left > 0:
+                stack += [(left - 1, right, path + '(')]
+            if left < right:
+                stack += [(left, right - 1, path + ')')]
+        return res
+
 #leetcode submit region end(Prohibit modification and deletion)
